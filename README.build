@@ -1,6 +1,6 @@
 ** This file is generated from 'make help' output, do not edit it. **
 
-ncam build system documentation
+OSCam build system documentation
 ================================
 
  Build variables:
@@ -8,7 +8,7 @@ ncam build system documentation
    process. Setting the variables lets you enable additional features, request
    extra libraries and more. Currently recognized build variables are:
 
-   CROSS=prefix   - Set tools prefix. This variable is used when ncam is being
+   CROSS=prefix   - Set tools prefix. This variable is used when OScam is being
                     cross compiled. For example if you want to cross compile
                     for SH4 architecture you can run: 'make CROSS=sh4-linux-'
                     If you don't have the directory where cross compilers are
@@ -22,7 +22,7 @@ ncam build system documentation
                     'make sh4 CROSS_DIR=/opt/STM/STLinux-2.3/devkit/sh4/bin/'
                     'make dm500 CROSS_DIR=/opt/cross/dm500/cdk/bin/'
 
-   CONF_DIR=/dir  - Set ncam config directory. For example to change config
+   CONF_DIR=/dir  - Set OSCam config directory. For example to change config
                     directory to /etc run: 'make CONF_DIR=/etc'
                     The default config directory is: '/usr/local/etc'
 
@@ -65,11 +65,11 @@ ncam build system documentation
                     Example: 'make EXTRA_FLAGS=-DBLAH=1'
 
    EXTRA_LIBS     - Add text to LIBS (affects linking).
-                    Example: 'make EXTRA_LIBS="-L./stapi -lncam_stapi"'
+                    Example: 'make EXTRA_LIBS="-L./stapi -loscam_stapi"'
 
  Use flags:
    Use flags are used to request additional libraries or features to be used
-   by ncam. Currently defined USE_xxx flags are:
+   by OSCam. Currently defined USE_xxx flags are:
 
    USE_LIBUSB=1    - Request linking with libusb. The variables that control
                      USE_LIBUSB=1 build are:
@@ -98,20 +98,20 @@ ncam build system documentation
                          STAPI_FLAGS='-DWITH_STAPI=1'
                          STAPI_CFLAGS='-DWITH_STAPI=1'
                          STAPI_LDFLAGS='-DWITH_STAPI=1'
-                         STAPI_LIB='-L./stapi -lncam_stapi'
+                         STAPI_LIB='-L./stapi -loscam_stapi'
                      Using USE_STAPI=1 adds to '-stapi' to PLUS_TARGET.
                      In order for USE_STAPI to work you have to create stapi
-                     directory and put libncam_stapi.a file in it.
+                     directory and put liboscam_stapi.a file in it.
 
    USE_STAPI5=1    - Request linking with STAPI5. The variables that control
                      USE_STAPI5=1 build are:
                          STAPI5_FLAGS='-DWITH_STAPI5=1'
                          STAPI5_CFLAGS='-DWITH_STAPI5=1'
                          STAPI5_LDFLAGS='-DWITH_STAPI5=1'
-                         STAPI5_LIB='-L./stapi -lncam_stapi5'
+                         STAPI5_LIB='-L./stapi -loscam_stapi5'
                      Using USE_STAPI5=1 adds to '-stapi' to PLUS_TARGET.
                      In order for USE_STAPI5 to work you have to create stapi
-                     directory and put libncam_stapi5.a file in it.
+                     directory and put liboscam_stapi5.a file in it.
 
    USE_COOLAPI=1  - Request support for Coolstream API (libnxp) aka NeutrinoHD
                     box. The variables that control the build are:
@@ -141,7 +141,7 @@ ncam build system documentation
                          AZBOX_LIB='-Lextapi/openxcas -lOpenXCASAPI'
                      Using USE_AZBOX=1 adds to '-azbox' to PLUS_TARGET.
                      extapi/openxcas/libOpenXCASAPI.a library that is shipped
-                     with ncam is compiled for MIPSEL.
+                     with OSCam is compiled for MIPSEL.
 
    USE_MCA=1      - Request support for Matrix Cam Air (MCA).
                     The variables that control the build are:
@@ -150,7 +150,7 @@ ncam build system documentation
                          MCA_LDFLAGS='-DWITH_MCA=1'
                      Using USE_MCA=1 adds to '-mca' to PLUS_TARGET.
 
-   USE_LIBCRYPTO=1 - Request linking with libcrypto instead of using ncam
+   USE_LIBCRYPTO=1 - Request linking with libcrypto instead of using OSCam
                      internal crypto functions. USE_LIBCRYPTO is automatically
                      enabled if the build is configured with SSL support. The
                      variables that control USE_LIBCRYPTO=1 build are:
@@ -178,20 +178,20 @@ ncam build system documentation
                      on the chosen USE_xxx flags. To disable adding
                      PLUS_TARGET to TARGET, set NO_PLUS_TARGET=1
 
-   BINDIR          - The directory where final ncam binary would be put. The
+   BINDIR          - The directory where final oscam binary would be put. The
                      default is: Distribution
 
-   ncam_BIN=text  - This variable controls how the ncam binary will be named.
-                     Default ncam_BIN value is:
-                      'BINDIR/ncam-VERSVN_REV-TARGET'
+   OSCAM_BIN=text  - This variable controls how the oscam binary will be named.
+                     Default OSCAM_BIN value is:
+                      'BINDIR/oscam-VERSVN_REV-TARGET'
                      Once the variables (BINDIR, VER, SVN_REV and TARGET) are
                      replaced, the resulting filename can look like this:
-                      'Distribution/ncam-1.20-unstable_svn7404-i486-slackware-linux-static'
-                     For example you can run: 'make ncam_BIN=my-ncam'
+                      'Distribution/oscam-1.20-unstable_svn7404-i486-slackware-linux-static'
+                     For example you can run: 'make OSCAM_BIN=my-oscam'
 
- Binaries compiled and run during the ncam build:
+ Binaries compiled and run during the OSCam build:
 
-   ncam builds webif/pages_gen binary that is run by the build system to
+   OSCam builds webif/pages_gen binary that is run by the build system to
    generate file that holds web pages. To build this binary two variables
    are used:
 
@@ -215,7 +215,7 @@ ncam build system documentation
                     located in 'Distribution' directory.
 
  Build system files:
-   config.sh      - ncam configuration. Run 'config.sh --help' to see
+   config.sh      - OSCam configuration. Run 'config.sh --help' to see
                     available parameters or 'make config' to start GUI
                     configuratior.
    Makefile       - Main build system file.
@@ -227,76 +227,76 @@ ncam build system documentation
 
  Here are some of the interesting predefined targets in Makefile.extra.
  To use them run 'make target ...' where ... can be any extra flag. For
- example if you want to compile ncam for Dreambox (DM500) but do not
+ example if you want to compile OSCam for Dreambox (DM500) but do not
  have the compilers in the path, you can run:
     make dm500 CROSS_DIR=/opt/cross/dm500/cdk/bin/
 
  Predefined targets in Makefile.extra:
 
-    make libusb        - Builds ncam with libusb support
-    make pcsc          - Builds ncam with PCSC support
-    make pcsc-libusb   - Builds ncam with PCSC and libusb support
-    make dm500         - Builds ncam for Dreambox (DM500)
-    make sh4           - Builds ncam for SH4 boxes
-    make azbox         - Builds ncam for AZBox STBs
-    make mca           - Builds ncam for Matrix Cam Air (MCA)
-    make coolstream    - Builds ncam for Coolstream
-    make dockstar      - Builds ncam for Dockstar
-    make qboxhd        - Builds ncam for QBoxHD STBs
-    make opensolaris   - Builds ncam for OpenSolaris
-    make uclinux       - Builds ncam for m68k uClinux
+    make libusb        - Builds OSCam with libusb support
+    make pcsc          - Builds OSCam with PCSC support
+    make pcsc-libusb   - Builds OSCam with PCSC and libusb support
+    make dm500         - Builds OSCam for Dreambox (DM500)
+    make sh4           - Builds OSCam for SH4 boxes
+    make azbox         - Builds OSCam for AZBox STBs
+    make mca           - Builds OSCam for Matrix Cam Air (MCA)
+    make coolstream    - Builds OSCam for Coolstream
+    make dockstar      - Builds OSCam for Dockstar
+    make qboxhd        - Builds OSCam for QBoxHD STBs
+    make opensolaris   - Builds OSCam for OpenSolaris
+    make uclinux       - Builds OSCam for m68k uClinux
 
  Predefined targets for static builds:
-    make static        - Builds ncam statically
-    make static-libusb - Builds ncam with libusb linked statically
-    make static-libcrypto - Builds ncam with libcrypto linked statically
-    make static-ssl    - Builds ncam with SSL support linked statically
+    make static        - Builds OSCam statically
+    make static-libusb - Builds OSCam with libusb linked statically
+    make static-libcrypto - Builds OSCam with libcrypto linked statically
+    make static-ssl    - Builds OSCam with SSL support linked statically
 
  Developer targets:
     make tests         - Builds 'tests.bin' binary
 
  Examples:
-   Build ncam for SH4 (the compilers are in the path):
+   Build OSCam for SH4 (the compilers are in the path):
      make CROSS=sh4-linux-
 
-   Build ncam for SH4 (the compilers are in not in the path):
+   Build OSCam for SH4 (the compilers are in not in the path):
      make sh4 CROSS_DIR=/opt/STM/STLinux-2.3/devkit/sh4/bin/
      make CROSS_DIR=/opt/STM/STLinux-2.3/devkit/sh4/bin/ CROSS=sh4-linux-
      make CROSS=/opt/STM/STLinux-2.3/devkit/sh4/bin/sh4-linux-
 
-   Build ncam for SH4 with STAPI:
+   Build OSCam for SH4 with STAPI:
      make CROSS=sh4-linux- USE_STAPI=1
 
-   Build ncam for SH4 with STAPI and changed configuration directory:
+   Build OSCam for SH4 with STAPI and changed configuration directory:
      make CROSS=sh4-linux- USE_STAPI=1 CONF_DIR=/var/tuxbox/config
 
-   Build ncam for ARM with COOLAPI (coolstream aka NeutrinoHD):
+   Build OSCam for ARM with COOLAPI (coolstream aka NeutrinoHD):
      make CROSS=arm-cx2450x-linux-gnueabi- USE_COOLAPI=1
 
-   Build ncam for MIPSEL with AZBOX support:
+   Build OSCam for MIPSEL with AZBOX support:
      make CROSS=mipsel-linux-uclibc- USE_AZBOX=1
 
-   Build ncam for ARM with MCA support:
+   Build OSCam for ARM with MCA support:
      make CROSS=arm-none-linux-gnueabi- USE_MCA=1
 
-   Build ncam with libusb and PCSC:
+   Build OSCam with libusb and PCSC:
      make USE_LIBUSB=1 USE_PCSC=1
 
-   Build ncam with static libusb:
+   Build OSCam with static libusb:
      make USE_LIBUSB=1 LIBUSB_LIB="/usr/lib/libusb-1.0.a"
 
-   Build ncam with static libcrypto:
+   Build OSCam with static libcrypto:
      make USE_LIBCRYPTO=1 LIBCRYPTO_LIB="/usr/lib/libcrypto.a"
 
-   Build ncam with static libssl and libcrypto:
+   Build OSCam with static libssl and libcrypto:
      make USE_SSL=1 SSL_LIB="/usr/lib/libssl.a" LIBCRYPTO_LIB="/usr/lib/libcrypto.a"
 
    Build with verbose messages and size optimizations:
      make V=1 CC_OPTS=-Os
 
-   Build and set ncam file name:
-     make ncam_BIN=ncam
+   Build and set oscam file name:
+     make OSCAM_BIN=oscam
 
-   Build and set ncam file name depending on revision:
-     make ncam_BIN=ncam-`./config.sh -r`
+   Build and set oscam file name depending on revision:
+     make OSCAM_BIN=oscam-`./config.sh -r`
 

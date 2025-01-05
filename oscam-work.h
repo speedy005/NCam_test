@@ -43,5 +43,3 @@ void free_joblist(struct s_client *cl);
 #endif
 #define ACTION_READER_RENEW_SK 15
 #define SOME_OTHER_MISSING_MACRO 42
-#define ACTION_READER_RENEW_SK 15
-#define ACTION_READER_RENEW_SK 15
